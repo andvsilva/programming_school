@@ -9,8 +9,6 @@ the explanation of the video on youtube and check the code here.
 
 # Table of Contents
 
-```bash
-For each video we have a folder with the source code.
-```
+1 - Compare Python versus C++ performance (source code: [py_cpp](py_cpp))
 
-1 - Compare Python versus C++ performance ([py_cpp](py_cpp))
+2 - How to generate fake data using the Faker python package? (source code: [GeneratorFake_data](GeneratorFake_data))
