@@ -11,7 +11,6 @@ import os
 from faker import Faker
 from varname import nameof
 from icecream import ic
-from multiprocessing import Process
 
 os.system('date')
 
@@ -98,7 +97,7 @@ print(df)
 # this is important to do before save in feather format.
 #df = df.reset_index(drop=True) 
 #df.to_feather('fakeDatabase.ftr')
-df.to_csv(f'dataset/fakeDatabase_{jobNumber}.csv')
+df.to_csv(f'dataset/fakeDatabaseRun2_{jobNumber}.csv')
 release_memory(df)
 
 # time of execution in minutes
