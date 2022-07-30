@@ -217,32 +217,9 @@ echo "$(($difftimelps / 60)) minutes and $(($difftimelps % 60)) seconds elapsed 
 
 ### How the directories are organized:
 
-```bash #FIXME change to image.
-$ tree
-.
-├── dataset
-│   └── fakeDatabase.ftr
-├── images
-│   ├── loopfor.gif
-│   └── rungendata.png
-├── jobsrunning
-├── README.md
-├── scripts
-│   ├── NumberOfJobsRunning.txt
-│   └── rungendata.sh
-└── src
-    ├── createfakedata.py
-    ├── databasefk.ipynb
-    ├── gendata.py
-    ├── generator_faker.py
-    ├── merge_files.py
-    ├── __pycache__
-    │   ├── gendata.cpython-37.pyc
-    │   └── toolkit.cpython-37.pyc
-    └── toolkit.py
+![](images/tree_directory.png)
 
-6 directories, 14 files
-```
+### Now is time to show ALL works. Let's go! :)
 
-### Now is time to show ALL works.
+
 

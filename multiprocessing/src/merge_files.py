@@ -22,4 +22,4 @@ print('files merged successfully.')
 
 # print('removing files csv...')
 for file in files:
-    os.system(f'rm {file}')
+    os.system(f'rm ../dataset/{file}')

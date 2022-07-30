@@ -24,12 +24,6 @@ from icecream import ic
 # faker object
 fake = Faker()
 
-number_of_clients = int(sys.argv[1])
-jobNumber = int(sys.argv[2])
-
-os.system(f'touch jobRunning{jobNumber}')
-print(f"Starting job #{jobNumber}...")
-
 #@snoop
 def make_database():
     # client - transaction
@@ -39,7 +33,7 @@ def make_database():
     date = fake.date_between(start_date='-90d', end_date='today') # 3 months ago!
     date_register = fake.date_between(start_date='-3y', end_date='today')
 
-    name_cols = []
+    name_cols = [] # list 
     name_cols.append(nameof(id))
     name_cols.append(nameof(client_name))
     name_cols.append(nameof(date))

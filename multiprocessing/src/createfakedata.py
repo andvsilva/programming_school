@@ -20,7 +20,7 @@ number_of_clients = int(sys.argv[1])
 jobNumber = int(sys.argv[2])
 
 # print on the terminal window
-os.system(f'touch jobsrunning/jobRunning{jobNumber}')
+os.system(f'touch ../scripts/jobRunning{jobNumber}')
 print(f"Starting job #{jobNumber}...")
 
 print("----------------------------- DATABASE ----------------------------") 
@@ -40,4 +40,4 @@ print(f'time of execution: {time_exec_min} minutes')
 os.system('date')
 print(f"All Done. :)")
     
-os.system(f'rm jobsrunning/jobRunning{jobNumber}')
+os.system(f'rm ../scripts/jobRunning{jobNumber}')
