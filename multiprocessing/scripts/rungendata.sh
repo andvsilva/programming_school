@@ -20,7 +20,7 @@ for JobNumber in {1..$jobnumbers}; do
     while [ $(ls -l | grep jobRunning | wc -l) -ge $nprocesses ]; 
     do
         nprocesses=$(< NumberOfJobsRunning.txt)
-        sleep 10s; # so, wait until one job finish!
+        sleep 3s; # so, wait until one job finish!
     done
 
     # number of processes running...
@@ -35,7 +35,7 @@ done
 # waiting until ALL the jobs are finished.
 while [ $(ls -l | grep jobRunning | wc -l) -gt 0 ]; 
 do
-    sleep 10s; # so, wait until one job finish!
+    sleep 3s; # so, wait until one job finish!
     echo "waiting until the last process finished..."
 done
 

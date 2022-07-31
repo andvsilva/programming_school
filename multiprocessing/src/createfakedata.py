@@ -39,5 +39,7 @@ time_exec_min = round( (time.time() - start_time)/60, 4)
 print(f'time of execution: {time_exec_min} minutes')
 os.system('date')
 print(f"All Done. :)")
-    
+
+warning_message = "please, remove the file jobRunning"
+os.system(f"echo {warning_message}{jobNumber}...")
 os.system(f'rm ../scripts/jobRunning{jobNumber}')
