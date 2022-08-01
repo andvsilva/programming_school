@@ -220,7 +220,24 @@ echo "$(($difftimelps / 60)) minutes and $(($difftimelps % 60)) seconds elapsed 
 
 ### Now is time to show how this script works. Let's go! :)
 
-To run this script you just need to open the terminal and go to the directory ```scripts``` and type the command - ```source rungendata.sh 10 1000``` i.e. 10 jobs and 1000 events. The script will run the python script ```createfakedata.py``` that will generate 1000 events and return a dataframe containing the fake data for each job, in CSV file format, in the end the python script ```merge_files.py``` will make the merge the files in to one simple file in ```feather-format```.
+To run this script you just need to open the terminal and go to the directory ```scripts``` and type the command - ```source rungendata.sh 10 1000``` i.e. 10 jobs and 1000 events. The script will run the python script ```createfakedata.py``` that will generate 1000 events and return a dataframe containing the fake data for each job, in CSV file format, in the end the python script ```merge_files.py``` will merge the files in to one simple file in ```feather-format```.
+
+Below two gifs showing whole process to run the jobs:
+
+
+##### Running jobs
+
+The terminal window is split into four parts, the first part (**top-left corner**), the command ```source rungendata.sh 12 6000``` and (**top-right corner**) the jobRunning files with the respective job Number. On the (**bottom-left corner**) the ```top``` command shows python running in parallel, more below I change the number of job running on the file ```NumberOfJobsRunning.txt``` (from 4 jobs to 8 jobs). The script detect the change and increase the number of jobs alive.
+![](images/run_part1.gif)
+
+####To Finish 
+
+After the jobs are finished, the script will run the python script ```merge_files.py``` to merge the CSV files in to one file challed ```fakeDatabase.ftr``` format-format, see (**bottom-right corner**)
+![](images/run_part2.gif)
+
+That's it for today. I hope you enjoy! If you like it, follow me and comment or make a suggestions below. Thank you very much for read the article, I appreciate.
+
+
 
 
 
