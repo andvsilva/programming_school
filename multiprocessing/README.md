@@ -239,6 +239,11 @@ After the jobs are finished, the script will run the python script ```merge_file
 
 That's it for today. I hope you enjoy! If you like it, follow me and comment or make a suggestions below. Thank you very much for read the article, I appreciate.
 
+To know more about me, see my [webpage - andvsilva](https://andsilvadrcc.gitlab.io/my-web-page-andre-vieira/).
+**Have a nice day :) see you**
+
+```happy coding```
+
 
 
 
