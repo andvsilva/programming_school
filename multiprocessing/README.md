@@ -228,11 +228,13 @@ Below two gifs showing whole process to run the jobs:
 ##### Running jobs
 
 The terminal window is split into four parts, the first part (**top-left corner**), the command ```source rungendata.sh 12 6000``` and (**top-right corner**) the jobRunning files with the respective job Number. On the (**bottom-left corner**) the ```top``` command shows python running in parallel, more below I change the number of job running on the file ```NumberOfJobsRunning.txt``` (from 4 jobs to 8 jobs). The script detect the change and increase the number of jobs alive.
+
 ![](images/run_part1.gif)
 
 ####To Finish 
 
 After the jobs are finished, the script will run the python script ```merge_files.py``` to merge the CSV files in to one file challed ```fakeDatabase.ftr``` format-format, see (**bottom-right corner**)
+
 ![](images/run_part2.gif)
 
 That's it for today. I hope you enjoy! If you like it, follow me and comment or make a suggestions below. Thank you very much for read the article, I appreciate.
