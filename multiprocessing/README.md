@@ -2,17 +2,17 @@
 
 #### A powerful script that will change the way automate your tasks.
 
-In this article, I will show you how to write a simple bash script that will run multiprocessing python scripts, theses python scripts executes a tasks and you can change the tasks according with you goals. In the bash script has a simple trick to control the number of jobs running in parallel in the moment.
+In this article, I will show you how to write a simple bash script that will run multiprocessing python scripts, each python script executes a task and you can change the tasks according with your goals. In the bash script has a simple trick to control the number of jobs running in parallel in the moment.
 
 #### Who this article is for?
 
-This article is for everyone, the beginners and developers. 
+This article is for everyone! And so for beginners and developers. Learning is always a good thing, and now is the best time to learn new skills.
 
-### What you learn in this tutorial?
+### What you will learn in this tutorial?
 
 I will try to explain how you can write a simple bash script that will run multiple tasks in parallel, the tutorial will allow you to learn a method to run multiprocessing, bash script tricks and python package to generate fake data (read this to know more [https://andsilvadrcc.medium.com/how-to-generate-fake-data-using-the-faker-python-package-b6734b944cb2])
 
-I will use basic commands - **Bash Script** and **Python**, if you are not familiar with the commands, I will try to explain in details (you can to study the basics commands before to read this article). 
+I will use basic commands from **Bash Script** and **Python**, if you are not familiar with the commands, I will try to explain in details (you can study the basic commands before to read this article). 
 
 ## Which Shell and Python you have installed?
 
@@ -55,7 +55,7 @@ Execute the file using zsh, the Z shell, or a compatible shell.
         - The invocation features in Bash is better when comparing with Zsh.
         - The prompt look can be controlled in Bash, whereas Zsh is customizable.
 
-For run this script, you should pass the following arguments to the bash script, as ```the number of jobs``` to run and ```the number of events``` for each job.
+To run this script, you should pass the following arguments to the bash script, as ```the number of jobs``` to run and ```the number of events``` for each job.
 
 #### Line 5: Argument: ```jobnumbers=$1``` 
 #### Line 6: Argument: ```nevents=$2```
@@ -78,7 +78,7 @@ The script has a way to calculate the execution time.
 
 #### Line 10: ```begin=$(date +"%s")```
 
-We get the timestamp for the moment that the script start to run, the beginning. For example, in the terminal:
+We get the timestamp for the moment that the script starts to run, the beginning. For example, in the terminal:
 
 ```bash
 # command `man` - manual to access information about the command.
@@ -124,7 +124,7 @@ Let's run one example:
 
 #### Line 17:  ```nprocesses=$(< NumberOfJobsRunning.txt)```
 
-In the script, this line get the number of jobs running in the file. The file store the number of jobs running, i.e., when the script is running, you can change the number of jobs running `on the fly`. And the number is passed to the variable ```nprocesses```. This method is very powerful when you are running your jobs in a cluster and you need to reduce or increase the number of jobs running.
+In the script, this line get the number of jobs running on the file. The file store the number of jobs running, i.e., when the script is running, you can change the number of jobs running `on the fly`. And the number is passed to the variable ```nprocesses```. This method is very powerful when you are running your jobs in a cluster and you need to reduce or increase the number of jobs running.
 
 But, **How actually this method really works?**
 
@@ -146,9 +146,7 @@ do
 done
 ```
 
-Let's break down piece by piece the block of code, to see how they work, the ```while``` loop is used to check constantly if there are the ```jobRunning$jobNumber``` file(s) in the directory. So, the condition in the ```while``` loop, the ```ls``` command return a list of files in the directory that is passed by ```|``` (pipe) - The Pipe is a command in Linux that lets you use two or more commands such that output of one command serves as input to the next. The output is passed to the ```grep``` command that get the file with the name (```jobRunning```) and pass to the ```wc``` command allows you to count the number of lines, words, characters, and bytes of each given file or standard input and print the result. If the number of files (```jobRunning```) are greater or equal to the number of processes running ```nprocesses``` do ```sleep 10s``` command to wait for 10 seconds, i.e. the condition is ```True``` so ```do```...```done```, by the contrary case, the script launch one more job until the condition is satisfied. e.g.,
-
-the ```ls -l``` command
+Let's break down piece by piece the block of code, to see how they work, the ```while``` loop is used to check constantly if there are the ```jobRunning$jobNumber``` file(s) in the directory. So, the condition in the ```while``` loop, the ```ls``` command return a list of files in the directory that is passed by ```|``` (pipe) - The Pipe is a command in Linux that lets you use two or more commands such that output of one command serves as input to the next. The output is passed to the ```grep``` command that get the file with the name (```jobRunning```) and pass to the ```wc``` command allows you to count the number of lines, words, characters, and bytes of each given file or standard input and print the result. If the number of files (```jobRunning```) are greater or equal to the number of processes running ```nprocesses``` do ```sleep 10s``` command to wait for 10 seconds, i.e. the condition is ```True``` so ```do```...```done```, by the contrary case, the script launch one more job until the condition is satisfied. e.g., the ```ls -l``` command
 ```bash
 $ ls -l                                                                                                                  4ms 
 total 0
@@ -161,7 +159,8 @@ total 0
 with the ```grep``` command
 
 ```bash
-$ ls -l | grep jobRunning # highlight the files with the name `jobRunning`
+# highlight the files with the name `jobRunning`
+$ ls -l | grep jobRunning 
 ```
 
 and the ```wc -l``` command to count the number of files.
@@ -233,7 +232,7 @@ The terminal window is split into four parts, the first part (**top-left corner*
 
 ####To Finish 
 
-After the jobs are finished, the script will run the python script ```merge_files.py``` to merge the CSV files in to one file challed ```fakeDatabase.ftr``` format-format, see (**bottom-right corner**)
+After the jobs are finished, the script will run the python script ```merge_files.py``` to merge the CSV files in to one file called ```fakeDatabase.ftr``` feather-format, see (**bottom-right corner**)
 
 ![](images/run_part2.gif)
 
