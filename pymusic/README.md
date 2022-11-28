@@ -9,4 +9,7 @@ pip3 freeze > requirements.txt
 
 # Install pre requirements, make the command below:
 $ pip3 install -r requirements.txt
+
+$ python -m pip install freeze-requirements
+$ python -m pip install playsound
 ```
