@@ -1,8 +1,17 @@
 #!/bin/zsh
 
-begin=$(date +"%s")
-for JobNumber in {0..10}; do
+# arguments: number of jobs and number of eventos per job.
+jobnumbers=$1
+nevents=$2
 
+# get datetime that start the run.
+begin=$(date +"%s")
+
+# loop in jobs.
+for JobNumber in {1..$jobnumbers}; do
+
+    # A good trick that we can change the number of jobs running 
+    # 'on the fly', so, you don't need to stop the running.
     nprocesses=$(< NumberOfJobsRunning.txt)
 
     # Please, check the number of jobs running
@@ -12,24 +21,14 @@ for JobNumber in {0..10}; do
         sleep 10s; # so, wait until one job finish!
     done
 
-    # number of processes running
+    # number of processes running...
     echo "Number of processes to keep alive: $nprocesses"
 
     # run python code
-    python generator_data.py 10000 $JobNumber &
-    sleep 1s
+    python task.py $JobNumber $nevents &
+    sleep 1s # time to finish the job before the next one. 
 
 done
-
-while [ $(ls -l | grep jobRunning | wc -l) -gt 0 ]; 
-do
-    sleep 10s; # so, wait until one job finish!
-    echo "waiting until the last process finished..."
-done
-
-echo "merging files..."
-# merge files csv to one file feather.
-python merge_files.py
 
 termin=$(date +"%s")
 difftimelps=$(($termin-$begin))
