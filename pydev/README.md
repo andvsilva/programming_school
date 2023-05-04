@@ -1,5 +1,4 @@
-
-## How Python Empowers Developers: A Comprehensive Guide to Programming in Python
+## How Empowers Developers: A Comprehensive Guide to Programming in Python
 
 ***Mastering the Language and Unlocking its Full Potential to be a Python Developer***
 
@@ -44,6 +43,8 @@ Contribute to open-source projects: Contributing to open-source projects is an e
 Attend conferences and meetups: Attending conferences and meetups can help you stay up-to-date with the latest Python developments, network with other developers, and learn new skills.
 
 By following this roadmap, you can become a proficient Python developer and land your dream job in the tech industry.
+
+[here the roadmap](https://roadmap.sh/pdfs/roadmaps/python.pdf)
 
 -----------------------
 
