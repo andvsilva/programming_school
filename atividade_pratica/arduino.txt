@@ -1,0 +1,42 @@
+//void setup() {
+  // put your setup code here, to run once:
+//  pinMode(13, OUTPUT);
+//}
+
+//void loop() {
+  // put your main code here, to run repeatedly:
+//  digitalWrite(13, HIGH);
+//  delay(100);
+//  digitalWrite(13, LOW);
+//  delay(100);
+ 
+//}
+
+
+// Declaração dos pinos dos LEDs
+const int ledPin1 = 11;
+const int ledPin2 = 13;
+
+void setup() {
+  // Define os pinos dos LEDs como saída
+  pinMode(ledPin1, OUTPUT);
+  pinMode(ledPin2, OUTPUT);
+}
+
+void loop() {
+  // Liga o primeiro LED
+  digitalWrite(ledPin1, HIGH);
+  delay(100); // Aguarda 1 segundo
+
+  // Desliga o primeiro LED
+  digitalWrite(ledPin1, LOW);
+  delay(100); // Aguarda meio segundo
+
+  // Liga o segundo LED
+  digitalWrite(ledPin2, HIGH);
+  delay(100); // Aguarda 1 segundo
+
+  // Desliga o segundo LED
+  digitalWrite(ledPin2, LOW);
+  delay(100); // Aguarda meio segundo
+}
