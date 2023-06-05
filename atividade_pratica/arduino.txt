@@ -9,34 +9,45 @@
 //  delay(100);
 //  digitalWrite(13, LOW);
 //  delay(100);
- 
+
 //}
 
 
 // Declaração dos pinos dos LEDs
 const int ledPin1 = 11;
-const int ledPin2 = 13;
+const int ledPin2 = 12;
+const int ledPin3 = 13;
+const int dtime = 50; // delay time
 
 void setup() {
   // Define os pinos dos LEDs como saída
   pinMode(ledPin1, OUTPUT);
   pinMode(ledPin2, OUTPUT);
+  pinMode(ledPin3, OUTPUT);
 }
 
 void loop() {
   // Liga o primeiro LED
   digitalWrite(ledPin1, HIGH);
-  delay(100); // Aguarda 1 segundo
+  delay(dtime); // Aguarda 1 segundo
 
   // Desliga o primeiro LED
   digitalWrite(ledPin1, LOW);
-  delay(100); // Aguarda meio segundo
+  delay(dtime); // Aguarda meio segundo
 
   // Liga o segundo LED
   digitalWrite(ledPin2, HIGH);
-  delay(100); // Aguarda 1 segundo
+  delay(dtime); // Aguarda 1 segundo
 
   // Desliga o segundo LED
   digitalWrite(ledPin2, LOW);
-  delay(100); // Aguarda meio segundo
+  delay(dtime); // Aguarda meio segundo
+ 
+  // Liga o segundo LED
+  digitalWrite(ledPin3, HIGH);
+  delay(dtime); // Aguarda 1 segundo
+
+  // Desliga o segundo LED
+  digitalWrite(ledPin3, LOW);
+  delay(dtime); // Aguarda meio segundo 
 }
