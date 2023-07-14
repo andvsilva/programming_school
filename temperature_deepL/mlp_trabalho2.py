@@ -41,19 +41,18 @@ path = f'{dataset_name}.csv'
 raw_data = pd.read_csv(path, ) 
 raw_data=  raw_data.value
 raw_data=raw_data.array.reshape(-1, 1)
-
 scaler = preprocessing.MinMaxScaler()
 data_norm = scaler.fit_transform(raw_data)
+
 # choose a number of time steps
 n_steps = 12
-
 
 # split into samples
 X, y = split_sequence(data_norm, n_steps)
 # summarize the data
 
-
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20 )
+# Split the dataset into train and test
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20, shuffle=True)
 X_train = X_train.reshape(-1, X_train.shape[-1])
 X_test = X_test.reshape(-1, X_test.shape[-1])
 
@@ -66,67 +65,75 @@ hn1=10 # number of neurons of the first hidden layer
 hn2=10 # number of neurons of the second hidden layer
 lr = 0.0001
 patience=20
-optimizer='RMSprop' #RMSprop,AdaGrad, SGD, adam
+#optimizer='RMSprop' #RMSprop,AdaGrad, SGD, adam
+#optimizer='RMSprop'
+#optimizer='AdaGrad'
+#optimizer='SGD'
+#optimizer='adam'
+
+optimizers = ['RMSprop',
+              'AdaGrad',
+              'SGD',
+              'adam'
+             ]
+for optimizer in optimizers:
+
+    # define model
+    model = Sequential()
+    model.add(Dense(hn1, activation=activation1, input_dim=n_steps))
+    model.add(Dense(hn2, activation=activation2))
+    model.add(Dense(1))
+    model.compile(optimizer=optimizer, loss='mse', metrics=['mse'])
+    ces = EarlyStopping(
+                        monitor='val_mse', 
+                        patience=patience,
+                        min_delta=0.01, 
+                        mode='max'
+                        )
+    mc = ModelCheckpoint('best_model.h5', monitor='val_mse',  mode='max', verbose=0, save_best_only=True) #
+
+    # fit model
+    history = model.fit(X_train, y_train,
+                    #batch_size= 64,
+                    epochs= epochs,
+                    validation_split=0.2,
+                    verbose=0,
+                    callbacks=[ces, mc]
+                )
 
 
-# define model
-model = Sequential()
-model.add(Dense(hn1, activation=activation1, input_dim=n_steps))
-model.add(Dense(hn2, activation=activation2))
-model.add(Dense(1))
-model.compile(optimizer=optimizer, loss='mse', metrics=['mse'])
-ces = EarlyStopping(
-                    monitor='val_mse', 
-                    patience=patience,
-                    min_delta=0.01, 
-                    mode='max'
-                    )
-mc = ModelCheckpoint('best_model.h5', monitor='val_mse',  mode='max', verbose=0, save_best_only=True) #
+    def plot_metric(history, metric):
+        train_metrics = history.history[metric]
+        val_metrics = history.history['val_'+metric]
+        epochs = range(1, len(train_metrics) + 1)
+        plt.plot(epochs, train_metrics, 'b--')
+        plt.plot(epochs, val_metrics, 'r-')
+        plt.title('Training and validation '+ metric)
+        plt.xlabel("Epochs")
+        plt.ylabel(metric)
+        plt.legend(["train_"+metric, 'val_'+metric])
+        plt.show()
+        
+    plot_metric(history, 'mse') 
 
-# fit model
-history = model.fit(X_train, y_train,
-                #batch_size= 64,
-                epochs= epochs,
-                validation_split=0.2,
-                verbose=0,
-                callbacks=[ces, mc]
-               )
+    # demonstrate prediction
+    # x_input = array([70, 80, 90])
+    # x_input = x_input.reshape((1, n_steps))
 
-
-def plot_metric(history, metric):
-    train_metrics = history.history[metric]
-    val_metrics = history.history['val_'+metric]
-    epochs = range(1, len(train_metrics) + 1)
-    plt.plot(epochs, train_metrics, 'b--')
-    plt.plot(epochs, val_metrics, 'r-')
-    plt.title('Training and validation '+ metric)
-    plt.xlabel("Epochs")
-    plt.ylabel(metric)
-    plt.legend(["train_"+metric, 'val_'+metric])
-    plt.show()
-    
-plot_metric(history, 'mse') 
-
-# demonstrate prediction
-# x_input = array([70, 80, 90])
-# x_input = x_input.reshape((1, n_steps))
-
-
-
-y_pred = model.predict(X_test, verbose=0)
-plt.plot(y_test)
-plt.plot(y_pred)
-plt.legend(['Original','Predicted'])
-d = y_test - y_pred
-mse_f = np.mean(d**2)
-mae_f = np.mean(abs(d))
-rmse_f = np.sqrt(mse_f)
-r2_f = 1-(sum(d**2)/sum((y_test-np.mean(y))**2))
-print("Resultados Teste")
-print("MAE:",mae_f)
-print("MSE:", mse_f)
-print("RMSE:", rmse_f)
-print("MAPE:", mean_absolute_percentage_error(y_test, y_pred))
-print("R-Squared:", r2_f)
-print('Saída prevista:')
-print(y_pred)
+    y_pred = model.predict(X_test, verbose=0)
+    plt.plot(y_test)
+    plt.plot(y_pred)
+    plt.legend(['Original','Predicted'])
+    d = y_test - y_pred
+    mse_f = np.mean(d**2)
+    mae_f = np.mean(abs(d))
+    rmse_f = np.sqrt(mse_f)
+    r2_f = 1-(sum(d**2)/sum((y_test-np.mean(y))**2))
+    print("Resultados Teste")
+    print("MAE:",mae_f)
+    print("MSE:", mse_f)
+    print("RMSE:", rmse_f)
+    print("MAPE:", mean_absolute_percentage_error(y_test, y_pred))
+    print("R-Squared:", r2_f)
+    print('Saída prevista:')
+    print(y_pred)
