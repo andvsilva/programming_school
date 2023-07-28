@@ -64,76 +64,69 @@ activation2='tanh' #sigmoid, relu, tanh
 hn1=10 # number of neurons of the first hidden layer
 hn2=10 # number of neurons of the second hidden layer
 lr = 0.0001
-patience=20
+patience=40
 #optimizer='RMSprop' #RMSprop,AdaGrad, SGD, adam
 #optimizer='RMSprop'
 #optimizer='AdaGrad'
-#optimizer='SGD'
+optimizer='SGD'
 #optimizer='adam'
 
-optimizers = ['RMSprop',
-              'AdaGrad',
-              'SGD',
-              'adam'
-             ]
-for optimizer in optimizers:
+# define model
+model = Sequential()
+model.add(Dense(hn1, activation=activation1, input_dim=n_steps))
+model.add(Dense(hn2, activation=activation2))
+model.add(Dense(1))
+model.compile(optimizer=optimizer, loss='mse', metrics=['mse'])
+ces = EarlyStopping(
+                    monitor='val_mse', 
+                    patience=patience,
+                    min_delta=0.01, 
+                    mode='max'
+                    )
+mc = ModelCheckpoint('best_model.h5', monitor='val_mse',  mode='max', verbose=0, save_best_only=True) #
 
-    # define model
-    model = Sequential()
-    model.add(Dense(hn1, activation=activation1, input_dim=n_steps))
-    model.add(Dense(hn2, activation=activation2))
-    model.add(Dense(1))
-    model.compile(optimizer=optimizer, loss='mse', metrics=['mse'])
-    ces = EarlyStopping(
-                        monitor='val_mse', 
-                        patience=patience,
-                        min_delta=0.01, 
-                        mode='max'
-                        )
-    mc = ModelCheckpoint('best_model.h5', monitor='val_mse',  mode='max', verbose=0, save_best_only=True) #
-
-    # fit model
-    history = model.fit(X_train, y_train,
-                    #batch_size= 64,
-                    epochs= epochs,
-                    validation_split=0.2,
-                    verbose=0,
-                    callbacks=[ces, mc]
-                )
+# fit model
+history = model.fit(X_train, y_train,
+                #batch_size= 64,
+                epochs= epochs,
+                validation_split=0.2,
+                verbose=0,
+                callbacks=[ces, mc]
+            )
 
 
-    def plot_metric(history, metric):
-        train_metrics = history.history[metric]
-        val_metrics = history.history['val_'+metric]
-        epochs = range(1, len(train_metrics) + 1)
-        plt.plot(epochs, train_metrics, 'b--')
-        plt.plot(epochs, val_metrics, 'r-')
-        plt.title('Training and validation '+ metric)
-        plt.xlabel("Epochs")
-        plt.ylabel(metric)
-        plt.legend(["train_"+metric, 'val_'+metric])
-        plt.show()
-        
-    plot_metric(history, 'mse') 
+def plot_metric(history, metric):
+    train_metrics = history.history[metric]
+    val_metrics = history.history['val_'+metric]
+    epochs = range(1, len(train_metrics) + 1)
+    plt.plot(epochs, train_metrics, 'b--')
+    plt.plot(epochs, val_metrics, 'r-')
+    plt.title('Training and validation '+ metric)
+    plt.xlabel("Epochs")
+    plt.ylabel(metric)
+    plt.legend(["train_"+metric, 'val_'+metric])
+    plt.show()
+    
+plot_metric(history, 'mse') 
 
-    # demonstrate prediction
-    # x_input = array([70, 80, 90])
-    # x_input = x_input.reshape((1, n_steps))
+# demonstrate prediction
+# x_input = array([70, 80, 90])
+# x_input = x_input.reshape((1, n_steps))
 
-    y_pred = model.predict(X_test, verbose=0)
-    plt.plot(y_test)
-    plt.plot(y_pred)
-    plt.legend(['Original','Predicted'])
-    d = y_test - y_pred
-    mse_f = np.mean(d**2)
-    mae_f = np.mean(abs(d))
-    rmse_f = np.sqrt(mse_f)
-    r2_f = 1-(sum(d**2)/sum((y_test-np.mean(y))**2))
-    print("Resultados Teste")
-    print("MAE:",mae_f)
-    print("MSE:", mse_f)
-    print("RMSE:", rmse_f)
-    print("MAPE:", mean_absolute_percentage_error(y_test, y_pred))
-    print("R-Squared:", r2_f)
-    print('Saída prevista:')
-    print(y_pred)
+y_pred = model.predict(X_test, verbose=0)
+plt.plot(y_test)
+plt.plot(y_pred)
+plt.legend(['Original','Predicted'])
+d = y_test - y_pred
+mse_f = np.mean(d**2)
+mae_f = np.mean(abs(d))
+rmse_f = np.sqrt(mse_f)
+r2_f = 1-(sum(d**2)/sum((y_test-np.mean(y))**2))
+print("Resultados Teste")
+print("MAE:",mae_f)
+print("MSE:", mse_f)
+print("RMSE:", rmse_f)
+print("MAPE:", mean_absolute_percentage_error(y_test, y_pred))
+print("R-Squared:", r2_f)
+print('Saída prevista:')
+print(y_pred)
