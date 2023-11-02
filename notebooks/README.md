@@ -2,7 +2,7 @@
 
 #### To study!
 
-- [Regressao_Linear_2023.ipynb](https://colab.research.google.com/github/gustavogrds/TIC/blob/master/Regressao_Linear_2023.ipynb)
+- [x] [Regressao_Linear_2023.ipynb](https://colab.research.google.com/github/gustavogrds/TIC/blob/master/Regressao_Linear_2023.ipynb)
 - [Reg_linear_lab_2023.ipynb](https://colab.research.google.com/drive/1NmQzs1Op6d7tWQjtmZPUq9GwX4-Sdak3?usp=sharing)
 - [regressao_logistica_2023.ipynb](https://colab.research.google.com/github/gustavogrds/TIC/blob/master/regressao_logistica_2023.ipynb)
 - [Regressao_Logistica_questoes.ipynb](https://colab.research.google.com/github/gustavogrds/TIC/blob/master/Regressao_Logistica_questoes.ipynb)
