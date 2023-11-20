@@ -18,7 +18,7 @@ locations=['US',
            'TR'
            ]
 
-narticles  = [1, 2, 3, 4, 5, 7, 8, 9]
+narticles  = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 titlearticles = {1 : "https://andrevsilva.com",
                2 : "https://andrevsilva.com/1paper.html",
