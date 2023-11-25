@@ -2,7 +2,7 @@
 
 ### To study!
 
-#### Part 1:
+#### Part 1 was successfully done!
 - [x] [Regressao_Linear_2023.ipynb](https://colab.research.google.com/github/gustavogrds/TIC/blob/master/Regressao_Linear_2023.ipynb)
 - [x] [Reg_linear_lab_2023.ipynb](https://colab.research.google.com/drive/1NmQzs1Op6d7tWQjtmZPUq9GwX4-Sdak3?usp=sharing)
 - [x] [regressao_logistica_2023.ipynb](https://colab.research.google.com/github/gustavogrds/TIC/blob/master/regressao_logistica_2023.ipynb)
@@ -14,9 +14,9 @@
 - [x] [Metricas_Avaliação_Classificação.ipynb](https://colab.research.google.com/github/gustavogrds/TIC/blob/master/Metricas_Avalia%C3%A7%C3%A3o_Classifica%C3%A7%C3%A3o.ipynb)
 - [x] [Gabarito_Prova_TIC.ipynb](https://colab.research.google.com/drive/1xkBFSCdMb1kw6PIjN2t2Tnh3EqOGY-_5?usp=sharing#scrollTo=-csgDmWX3BlO)
 
-#### Part 2:
+#### Part 2 work in Process...
 - [ ] [k-médias](https://colab.research.google.com/github/gustavogrds/TIC/blob/master/TIC_Kmedias_2023_2.ipynb)
-- [ ] [k-médias](https://colab.research.google.com/github/gustavogrds/TIC/blob/master/TIC_Kmedias_Lab_2023_2.ipynb)
+- [ ] [k-médias - Exercises](https://colab.research.google.com/github/gustavogrds/TIC/blob/master/TIC_Kmedias_Lab_2023_2.ipynb)
 - [ ] [Clusterização hierárquica](https://colab.research.google.com/drive/1taAKGvTxphlb8aYp3Jp_tYSSBqmnk6oI?usp=sharing)
 - [ ] [Clusterização hierárquica](https://colab.research.google.com/drive/1bFQnaUyjUimyYNb0NgglbJRaoYNN8dGJ?usp=sharing)
 - [ ] [Séries temporais](https://colab.research.google.com/github/gustavogrds/TIC/blob/master/SeriesTemporais_2023_2.ipynb)
