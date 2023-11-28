@@ -15,10 +15,10 @@
 - [x] [Gabarito_Prova_TIC.ipynb](https://colab.research.google.com/drive/1xkBFSCdMb1kw6PIjN2t2Tnh3EqOGY-_5?usp=sharing#scrollTo=-csgDmWX3BlO)
 
 #### Part 2 work in Process...
-- [ ] [k-médias](https://colab.research.google.com/github/gustavogrds/TIC/blob/master/TIC_Kmedias_2023_2.ipynb)
-- [ ] [k-médias - Exercises](https://colab.research.google.com/github/gustavogrds/TIC/blob/master/TIC_Kmedias_Lab_2023_2.ipynb)
-- [ ] [Clusterização hierárquica](https://colab.research.google.com/drive/1taAKGvTxphlb8aYp3Jp_tYSSBqmnk6oI?usp=sharing)
-- [ ] [Clusterização hierárquica](https://colab.research.google.com/drive/1bFQnaUyjUimyYNb0NgglbJRaoYNN8dGJ?usp=sharing)
+- [X] [k-médias](https://colab.research.google.com/github/gustavogrds/TIC/blob/master/TIC_Kmedias_2023_2.ipynb)
+- [X] [k-médias - Exercises](https://colab.research.google.com/github/gustavogrds/TIC/blob/master/TIC_Kmedias_Lab_2023_2.ipynb)
+- [X] [Clusterização hierárquica](https://colab.research.google.com/drive/1taAKGvTxphlb8aYp3Jp_tYSSBqmnk6oI?usp=sharing)
+- [X] [Clusterização hierárquica - Exercises](https://colab.research.google.com/drive/1bFQnaUyjUimyYNb0NgglbJRaoYNN8dGJ?usp=sharing)
 - [ ] [Séries temporais](https://colab.research.google.com/github/gustavogrds/TIC/blob/master/SeriesTemporais_2023_2.ipynb)
 - [ ] [Séries temporais](https://colab.research.google.com/github/gustavogrds/TIC/blob/master/Lab_series_temp_2023_2.ipynb)
 - [ ] [Séries temporais](https://colab.research.google.com/github/gustavogrds/TIC/blob/master/Modelo_ARIMA__2023.ipynb)
