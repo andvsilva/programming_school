@@ -23,5 +23,5 @@
 - [X] [Séries temporais](https://colab.research.google.com/github/gustavogrds/TIC/blob/master/Lab_series_temp_2023_2.ipynb)
 - [X] [Séries temporais](https://colab.research.google.com/github/gustavogrds/TIC/blob/master/Modelo_ARIMA__2023.ipynb)
 - [X] [Séries temporais](https://colab.research.google.com/github/gustavogrds/TIC/blob/master/Lab_ARIMA_2023_2.ipynb)
-- [ ] [Mineração de texto](https://colab.research.google.com/github/gustavogrds/TIC/blob/master/NLP_intro.ipynb)
-- [ ] [Mineração de texto](https://colab.research.google.com/drive/1OLTOTjAOBoP6ImTPdZXuan4fzSPOX5pG?usp=sharing)
+- [X] [Mineração de texto](https://colab.research.google.com/github/gustavogrds/TIC/blob/master/NLP_intro.ipynb)
+- [X] [Mineração de texto](https://colab.research.google.com/drive/1OLTOTjAOBoP6ImTPdZXuan4fzSPOX5pG?usp=sharing)
